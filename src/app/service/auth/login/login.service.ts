@@ -12,7 +12,7 @@ import { ResponseApi } from 'src/app/model/response';
 export class LoginService {
 
   constructor(private http: HttpClient) { }
-  private baseURL = `http://localhost:3000/api`;
+  private baseURL = `api/login`;
 
 
   login(data: LoginInterface) : Observable<any> {

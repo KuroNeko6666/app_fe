@@ -33,16 +33,21 @@ export class LoginComponent {
       password : this.formGroup.value.password!
     }
 
-    this.service.login(data).subscribe((res) =>{
-      if (res.message != "Success") {
-        this.isFail = true;
-        return;
-      }
-      localStorage.setItem("keyToken", res.data.token)
-      localStorage.setItem("user", res.data.email)
+    if(data.email && data.password){
+      this.service.login(data).subscribe((res) =>{
+        console.log(res);
 
-      this.router.navigateByUrl('/');
-    })
+        if (res.code != 200) {
+          this.isFail = true;
+          return;
+        }
+        localStorage.setItem("keyToken", res.data.token)
+        localStorage.setItem("user", res.data.email)
+
+        this.router.navigateByUrl('/');
+      })
+    }
+
   }
 
   checkLogin() : void{

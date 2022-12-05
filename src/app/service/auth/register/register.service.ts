@@ -9,7 +9,7 @@ import { RegisterInterface } from 'src/app/model/register-interface';
 export class RegisterService {
 
   constructor(private http: HttpClient) { }
-  private baseURL = `http://localhost:3000/api`;
+  private baseURL = `api/register`;
 
 
   register(data: RegisterInterface) : Observable<any> {

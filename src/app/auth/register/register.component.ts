@@ -32,11 +32,15 @@ export class RegisterComponent {
     }
 
     this.service.register(data).subscribe((res) =>{
-      if (res.message != "Success") {
+      console.log(res);
+
+      if (res.code != 201) {
         this.isFail = true;
         return;
       }
       this.router.navigateByUrl('/');
-    })
+    });
+
+
   }
 }

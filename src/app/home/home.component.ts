@@ -17,6 +17,11 @@ export class HomeComponent {
 
   }
 
+  logout() {
+    localStorage.clear();
+    this.router.navigateByUrl('/auth/login');
+  }
+
   checkLogin() : void{
     console.log("test");
 
